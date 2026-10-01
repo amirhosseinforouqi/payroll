@@ -1,0 +1,5 @@
+node_modules/
+*.pdf
+payroll-inputs*.json
+*private*
+.DS_Store

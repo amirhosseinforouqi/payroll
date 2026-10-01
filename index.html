@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Canadian payroll and T4 projection calculator using 2026 CRA payroll formulas. Calculates locally in your browser.">
+  <title>Canadian Payroll Calculator</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header><div class="brand"><span class="logo" aria-hidden="true">P</span><div><strong>Canadian Payroll</strong><small>Paystubs &amp; T4 projections</small></div></div><span class="badge">CRA rules · 2026</span></header>
+  <main>
+    <div class="intro"><div><p class="eyebrow">FROM ONE PAY PERIOD TO YEAR END</p><h1>Make the numbers add up.</h1><p>Enter your dates, gross earnings and YTD. See deductions, net pay and projected T4 boxes in one place.</p></div><div class="privacy">Calculated in your browser.<br>No payroll data is uploaded.</div></div>
+    <div class="workspace">
+      <aside class="card"><div class="card-heading"><h2>Payroll inputs</h2><button form="payroll-form" type="submit">Calculate</button><button id="example" type="button" class="quiet">Load example</button></div><p class="note">Starts with a fictional equal-pay example. Replace its inputs with your own.</p><form id="payroll-form"></form></aside>
+      <div class="results-column">
+        <section id="messages" aria-live="polite"></section>
+        <section id="totals" class="summary" aria-live="polite"></section>
+        <div id="download-status" class="notice" role="status" hidden></div>
+        <section class="card results"><nav aria-label="Results"><button type="button" data-tab="paystub" class="active" aria-pressed="true">Paystub</button><button type="button" data-tab="t4" aria-pressed="false">T4 projection</button><button type="button" data-tab="schedule" aria-pressed="false">Year-end schedule</button><button type="button" data-tab="audit" aria-pressed="false">Calculation details</button></nav><div id="result-body"><p class="empty">Calculate a pay period to see the result.</p></div></section>
+        <section class="card"><div class="card-heading"><h2>Check against CRA or ADP</h2></div><p class="note">Open either calculator and enter the same inputs. These links open an empty external calculator; they do not send your payroll data.</p><div class="actions"><a class="button secondary" target="_blank" rel="noopener noreferrer" href="https://apps.cra-arc.gc.ca/ebci/rhpd/beta/entry">Open CRA calculator ↗</a><a class="button secondary" target="_blank" rel="noopener noreferrer" href="https://www.adp.ca/en/resources/tools/calculator.aspx#/simple/regular">Open ADP calculator ↗</a></div><details><summary>Compare a paystub or calculator result</summary><div id="comparison-inputs" class="grid"></div><button id="compare" class="secondary" type="button">Compare numbers</button><div id="comparison"></div></details></section>
+        <footer><p>2026 regular salary and simple bonus calculations use CRA T4127 Option 1, including January and July rules. Quebec, other tax years, commissions, retroactive pay and complex pension adjustments need separate calculation.</p><details><summary>CRA sources and calculation coverage</summary><div id="sources"></div></details><p>Paystub exports are calculation worksheets. T4 exports are projections for review, and cannot be filed with CRA.</p></footer>
+      </div>
+    </div>
+  </main>
+  <script src="src/tax-params.js"></script><script src="src/engine.js"></script><script src="src/templates.js"></script><script src="src/pdf.js"></script><script src="src/calculator.js"></script><script src="src/reports.js"></script><script src="app.js"></script>
+</body>
+</html>
